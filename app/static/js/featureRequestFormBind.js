@@ -33,9 +33,11 @@ onSubmit = function () {
         contentType: 'application/json',
         success: function (result) {
             if(result == 'success') {
+                // If FeatureRequestService class returns 'success' page will navigate to FeatureRequestDetailsPage.
                 document.getElementById('detailspage').click();
             }
             else if(result == 'Title name already exists.Please change name.') {
+                // If FeatureRequestService class returns the above result an alert will be displayed.
                 alert('Title name already exists.Please change name.');
             }
             else { alert("Please Check your values and Submit"); }

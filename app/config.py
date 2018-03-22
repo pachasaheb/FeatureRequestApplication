@@ -3,9 +3,11 @@ import os
 from sqlalchemy import create_engine
 # from sqlalchemy package we can import declarativ_base
 from sqlalchemy.ext.declarative import declarative_base
+# from sqlalchemy package we can import sessionmaker
 from sqlalchemy.orm import sessionmaker
 
 class Config(object): 
+    """ Config class is used to set configurations required for the project."""
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'you-will-never-guess'
     SQLALCHEMY_TRACK_MODIFICATIONS=True
     # SET database connection string
@@ -18,12 +20,12 @@ class Config(object):
     # they will be mapped to.
     # We create the base class using the declarative_base().“base”, we can define any number of mapped classes.
     base = declarative_base()
+    # Specifying tablename for models.py to persist in database.
     table= 'FeatureRequestApp'
     # create a configured "Session" class
     Session= sessionmaker(db)
-
-    # Setting Urls for feature request form page and details page
-    #featureHomePageURL= 'http://127.0.0.1:5000/'
-    #featureListPageURL= 'http://127.0.0.1:5000/FeatureRequestDetails'
+    #Setting Urls for feature request form page and details page which will be used in testcases
+    featureHomePageURL= 'http://127.0.0.1:5000/'
+    featureListPageURL= 'http://127.0.0.1:5000/FeatureRequestDetails'
 
 

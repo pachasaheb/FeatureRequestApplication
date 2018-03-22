@@ -37,7 +37,8 @@
             <a href="{{ url_for('featureRequestForm') }}">Add New Feature Request</a>
         </h3>
     </div>
-    <!-- Update Modal  consits of form with all the input fields and validations and used to edit the feature request details-->
+    <!-- Update Modal  consits of form with all the input fields and validations and used to edit the feature request details and Title , Client fields are disabled.
+        On update values and form submit will be linked to getFeatureRequestDetails.js-->
     <div id="UpdateModal" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false">
         <div class="modal-dialog">
             <!-- Modal content-->
@@ -47,6 +48,7 @@
                     <h4 class="modal-title"><b>Edit Form</b></h4>
                 </div>
                 <br>
+                  <!-- Edit form starts here-->
                 <form class="form-horizontal" data-bind="submit: onUpdate">
                     <div class="form-group">
                         <label class="col-sm-3 control-label">Title<code>*</code></label>
@@ -102,9 +104,12 @@
                         </div>
                     </div>
                 </form>
+                  <!-- Edit form ends here-->
             </div>
+              <!-- Modal content ends here-->
         </div>
     </div>
+      <!-- UpdateModal ends here-->
     {% endblock %}
 </body>
 

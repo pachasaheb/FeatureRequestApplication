@@ -28,7 +28,7 @@
             <h3 style="text-align: center;"><b>Feature Request Form</b></h3>
         </div>
         <br>
-        <!-- Form which contains Title, Description, Client, Client Priority, Target date and Product Area-->
+        <!-- Form which contains Title, Description, Client, Client Priority, Target date and Product Area and is bind with featureRequestFormBind.js using knockout js concept.-->
         <form class="form-horizontal" data-bind="submit: onSubmit">
             <div class="form-group">
                 <label class="col-sm-3 control-label">Title<code>*</code></label>
@@ -91,6 +91,7 @@
         </h3>
     </div>
     <script>
+        // this script is used to restrict the target date to only display future dates starting from tommorrow.
         var now = new Date(),
             minDate = now.toISOString().substring(0, 10);
         $('#targetDate').prop('min', minDate);

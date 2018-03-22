@@ -1,8 +1,8 @@
 # routes.py acts as view for the project which renders html pages on routing to 'http://127.0.0.1:5000/' and 'http://127.0.0.1:5000/FeatureRequestDetails'
 
-# from flask import
+# from flask import render_template() To render a template.
 from flask import render_template
-# from app folder importing flask variable app
+# from app folder importing flask variable APP
 from app import APP
 
 # On Flask app run whenever user navigates to url 'http://127.0.0.1:5000/FeatureRequestDetails' FeatureRequestDetails function renders featureRequestDetails.html

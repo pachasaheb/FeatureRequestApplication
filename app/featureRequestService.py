@@ -1,22 +1,22 @@
-
+# from app module import APP flask variable and model class FeatureRequestApp
 from app import APP,FeatureRequestApp
-import sqlalchemy
 
 # from sqlalchemy we can import ascending order
 from sqlalchemy import asc
 
 # imports all exceptions from sqlalchemy package
 from sqlalchemy.exc import *
+# import Psycopg package is the most popular PostgreSQL database adapter for the Python programming language.
 import psycopg2
 
 # from config.py imports Config class for importing Session
 from config import Config
 
-# This class is used to create Feature Request by using createFeatureRequestService function
-# This class is used to retrieve Feature Request Details by using retrieveFeatureRequestService function
-
+# FeatureRequestService class is used to create Feature Request by using createFeatureRequestService function.
+# FeatureRequestService class is used to retrieve  Feature Request Details by using retrieveFeatureRequestService function.
+# FeatureRequestService class is used to edit  Feature Request Details by using editFeatureRequestService function.
 class FeatureRequestService:
-    """FeatureRequestService Class is used to create and retrieve Feature Requests into/from Postgresql database"""
+    """FeatureRequestService Class is used to create, retrieve and edit Feature Requests into/from Postgresql database"""
 
     # __init__ is default constructor used to declare a class level session variable which can be set or get whenever required for a session
     def __init__(self):
@@ -101,26 +101,34 @@ class FeatureRequestService:
 
     # reprioritizeFeatureRequestService function is used to retrieve the Request Details from Database
     def reprioritizeFeatureRequestService(self,featureRequestApp):
-        # dbsession variable gets session from class function getSession()
-        dbsession= self.getSession()
-        updateStart= int(featureRequestApp.clientPriority)
-        updateClient= featureRequestApp.client
-        # Filter total rows according to given Client name
-        totalRows=len(dbsession.query(FeatureRequestApp).filter_by(client = updateClient).all())
-        # Checking whether given client priority less than or equal to total rows
-        if updateStart <= totalRows:
-            # Running for loop according to client Priority
-            for updateStart in range(updateStart, totalRows+1, 1):
-                updateRow = dbsession.query(FeatureRequestApp).filter_by(clientPriority=updateStart, client = updateClient).first()
-                updateRow.clientPriority = updateStart+1
+        try:
+            # dbsession variable gets session from class function getSession()
+            dbsession= self.getSession()
+            updateStart= int(featureRequestApp.clientPriority)
+            updateClient= featureRequestApp.client
+            # Filter total rows according to given Client name
+            totalRows=len(dbsession.query(FeatureRequestApp).filter_by(client = updateClient).all())
+            # Checking whether given client priority less than or equal to total rows
+            if updateStart <= totalRows:
+                # Running for loop according to client Priority
+                for updateStart in range(updateStart, totalRows+1, 1):
+                    updateRow = dbsession.query(FeatureRequestApp).filter_by(clientPriority=updateStart, client = updateClient).first()
+                    updateRow.clientPriority = updateStart+1
 
-            dbsession.add(featureRequestApp)
-            dbsession.commit()
-        # if given priority is greater than total number of rows then update as total+1 in client priority
-        else:
-            dbsession.add(FeatureRequestApp(featureRequestApp.title, featureRequestApp.description, featureRequestApp.client, totalRows+1,featureRequestApp.targetDate,featureRequestApp.productArea))
-            dbsession.commit()
+                dbsession.add(featureRequestApp)
+                dbsession.commit()
+            # if given priority is greater than total number of rows then update as total+1 in client priority
+            else:
+                dbsession.add(FeatureRequestApp(featureRequestApp.title, featureRequestApp.description, featureRequestApp.client, totalRows+1,featureRequestApp.targetDate,featureRequestApp.productArea))
+                dbsession.commit()
 
+        except Exception as e:
+            dbsession.rollback()
+            print("Error Occured in retrieveFeatureRequestService",e)
+            return 'Error Occured'
+
+        finally:
+            dbsession.close_all() 
     
     # editFeatureRequestService function is used to retrieve the Request Details from Database
     def editFeatureRequestService(self,featureRequestApp):

@@ -1,12 +1,17 @@
+<!-- base HTML file conists of header and footer common to FeatureRequestFormPage and FeatureRequestDetailsPage
+base HTML file acts as base template consists of child templates FeatureRequestFormPage, FeatureRequestDetailsPage-->
 <html>
-
 <head>
+    <!--Style elemetns for base html-->
     <style>
         .navbar-default {
             background-color: #DD4B39
         }
         .container {
             min-height: 530px
+        }
+        .main-footer{
+            background-color: #eeeeee
         }
     </style>
 </head>
@@ -16,7 +21,7 @@
     <nav class="navbar  navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#" style="font-size:165%;color: white">Feature Request Application</a>
+                <a class="navbar-brand" href="https://github.com/pachasaheb/FeatureRequestApplication"  target="_blank" style="font-size:165%;color: white">Feature Request Application</a>
             </div>
             <form class="navbar-form navbar-right">
                 <div class="form-group">
@@ -27,16 +32,18 @@
             </form>
         </div>
     </nav>
+    <!-- Page contents which extend the base html file will be displayed here.-->
     <div class="container">
         {% block content %}{% endblock %}
     </div>
     <br>
+    <!-- Footer Element-->
     <footer class="main-footer" padding>
         <div class="pull-right hidden-xs">
             Feature Request Application&nbsp;&nbsp;
         </div>
         <!-- Default to the left -->
-        <strong>&nbsp;&nbsp;Copyright &copy; 2018 <a href="#">Tech Mahindra</a>.</strong> All rights reserved.
+        <strong>&nbsp;&nbsp;Copyright &copy; 2018 <a href="https://www.techmahindra.com/industries/Enterprise/bfsi/bfsi.aspx" target="_blank">Tech Mahindra</a>.</strong> All rights reserved.
     </footer>
 </body>
 
