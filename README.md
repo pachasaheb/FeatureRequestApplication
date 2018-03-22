@@ -1,14 +1,14 @@
 # Feature Request Application:
-	Feature Request Application is built with Python and Flask which is a web application framework written in Python. It
-	consist of feature request form page where a user can fill in a feature request, html values are binded using KnockoutJS,
-	using SqlAlchemy ORM details are persisted in database and feature request details page where a user can see feature 
-	request list in the form of a table.
+	Feature Request Application is built with Python and Flask which is a web application framework written 
+	in Python. It consists of feature request form page where a user can fill in a feature request, html 
+	values are binded using KnockoutJS,using SqlAlchemy ORM details are persisted in database and 
+	feature request details page where a user can see feature request list in the form of a table.
   
  ## Getting Started:
-  Pre-requisites: Project is developed using
-    * Python (v.3.6.4), 
-    * PostgreSql database(v.10.1)
-    * Browsers: Chrome(v.64.) and Firefox(v.55+)
+	 Pre-requisites: Project is developed using
+	    * Python (v.3.6.4), 
+	    * PostgreSql database(v.10.1)
+	    * Browsers: Chrome(v.64.) and Firefox(v.55+)
  
 ## Installation:
 1.Download the project folder from the github. Create a Python Virtual Environment. Unzip the project folder 
@@ -75,14 +75,14 @@ Make changes according to your local database and comment the rest of unrequired
 	•Server Side Scripting: Python (3.6.4)
 	•Server Framework: Flask (0.12.2)
 	•SqlAlchemy (1.2.2): Solution Options for Reprioritization
-		1.SQL ORM: This has been implemented-ORM tools provide an object oriented query language. This allows application
-		developers to focus on the object model and not to have to be concerned with the database structure or SQL semantics.
-		The ORM tool itself will translate the query language into the appropriate syntax for the database.
-		2.Using Stored Procedure: Stored procedures are compiled once and stored in executable form, so procedure calls are quick
-		and efficient. Executable code is automatically cached and shared among users. This lowers memory requirements and
-		invocation overhead.
-		3.Bulk Update: A feature which will record all the changes and will update in bulk which will reduce the detours to
-		 /from database.
+		1.SQL ORM: This has been implemented-ORM tools provide an object oriented query language. This allows 				application developers to focus on the object model and not to have to be concerned with the 
+		database structure or SQL semantics.The ORM tool itself will translate the query language into 
+		the appropriate syntax for the database.
+		2.Using Stored Procedure: Stored procedures are compiled once and stored in executable form, so 
+		procedure calls are quick and efficient. Executable code is automatically cached and shared 
+		among users. This lowers memory requirements and invocation overhead.
+		3.Bulk Update: A feature which will record all the changes and will update in bulk which will 
+		reduce the detours to/from database.
 	•JavaScript: KnockoutJS (3.4.2): Knockout is a JavaScript library that which gives a simplified and dynamic Model-View-
 	 View Model binding pattern for all the UI elements in HTML.
 	•Testing: Unittest2 (1.1.0): Using Unittest in python test cases have been written to test positive and negative 
