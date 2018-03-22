@@ -9,6 +9,9 @@ $(document).ready(function(){
             console.log("json"+data.details);
             // Prints the retrieved JSON data into a table
             $('#FeatureRequest_table').DataTable({
+                pageLength: 5,
+                lengthMenu: [ 5,10, 25, 50, 75, 100 ],
+                responsive: true,
                 data: data.details,
                 columns: [
                     {

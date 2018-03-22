@@ -17,7 +17,7 @@
     {% block content %}
     <h2 style="text-align: center;"><b>Request Details</b></h2>
     <br>
-    <div class="container" style="width:80%;">
+    <div>
         <div class="table table-responsive">
             <!-- Table to view Feature Request Details -->
             <table class="table table-bordered" id="FeatureRequest_table">
@@ -32,11 +32,10 @@
                     </tr>
                 </thead>
             </table>
-    </div>
-
-    <h3 style="margin-left: 40%">
-        <a href="{{ url_for('featureRequestForm') }}">Add New Feature Request</a>
-    </h3>
+        </div>
+        <h3 style="margin-left: 40%">
+            <a href="{{ url_for('featureRequestForm') }}">Add New Feature Request</a>
+        </h3>
     </div>
     <!-- Update Modal  consits of form with all the input fields and validations and used to edit the feature request details-->
     <div id="UpdateModal" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false">
